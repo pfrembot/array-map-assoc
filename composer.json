@@ -1,0 +1,27 @@
+{
+  "name": "pfrembot/array_map_assoc",
+  "type": "library",
+  "description": "Array map functions that do not re-index the resulting array",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Edward Pfremmer",
+      "email": "edward.pfremmer@nerdery.com"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "src/array_map_assoc.php"
+    ]
+  },
+  "require": {
+    "php": ">=5.4"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^4.8|^5.5",
+    "satooshi/php-coveralls": "^1.0"
+  },
+  "config": {
+    "bin-dir": "bin"
+  }
+}
