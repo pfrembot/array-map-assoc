@@ -8,7 +8,39 @@ Add array_map functions for mapping associative arrays whilst maintaining their 
 ## Installation
 
 ```bash
-composer require pfrembot/array_map_assoc
+composer require pfrembot/array-map-assoc
+```
+
+## Usage
+
+```php
+require_once 'vendor/autoload.php';
+
+use Pfrembot;
+
+$array = [
+    'foo' => 1,
+    'bar' => 2,
+    'baz' => 3,
+];
+
+$newArray = Pfrembot\array_map_assoc($array, function($value, $key) {
+  return $value * 2;
+});
+
+var_dump($newArray);
+
+/*
+Outputs:
+    array(3) {
+      'foo' =>
+      int(2)
+      'bar' =>
+      int(4)
+      'baz' =>
+      int(6)
+    }
+*/
 ```
 
 ## Functions
