@@ -60,40 +60,6 @@ class ArrayMapAssocTest extends PHPUnit_Framework_TestCase
         }
     }
 
-    /** @group array_map_uassoc */
-    public function testMapUAssoc()
-    {
-        $result = Pfrembot\array_map_uassoc($this->array, function ($value, $key) {
-            $this->assertArrayHasKey($key, $this->array);
-            return $value * 2;
-        });
-
-        $this->assertSampleNotModified();
-
-        foreach ($result as $key => $value) {
-            $this->assertArrayHasKey($key, $this->array);
-            $this->assertEquals($this->array[$key] * 2, $value);
-        }
-    }
-
-    /** @group array_map_uassoc */
-    public function testMapUAssocRekey()
-    {
-        $result = Pfrembot\array_map_uassoc($this->array, function ($value, &$key) {
-            $key = 'prefix_' . $key;
-            return $value * 2;
-        });
-
-        $this->assertSampleNotModified();
-
-        foreach ($result as $key => $value) {
-            $originalKey = str_replace('prefix_', '', $key);
-
-            $this->assertArrayHasKey($originalKey, $this->array);
-            $this->assertEquals($this->array[$originalKey] * 2, $value);
-        }
-    }
-
     /**
      * Test that the original array was not modified
      *
